@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Episode } from '../core/models/episode.model'; 
 import { PodcastService } from '../core/services/podcastService';
+import { DataService } from '../core/services/dataService';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +16,8 @@ export class DetailPodcastComponent implements OnInit {
   id: string = '';
   episodes: Episode[] = [];
 
-  constructor(private route: ActivatedRoute, private podcastService: PodcastService , private router : Router) { }
+  constructor(private route: ActivatedRoute, private podcastService: PodcastService, 
+    private router : Router, private dataService : DataService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') ?? '';
@@ -34,12 +37,9 @@ export class DetailPodcastComponent implements OnInit {
   /* METHODS */
   goToDetail(id : any , episodioId : any , epid : any ){
     console.log(id, episodioId , epid)
-    const navigationExtras = {
-      state: {
-        episode : epid
-      }
-    }
-    this.router.navigate(['/podcast/', id, 'episode', episodioId], navigationExtras);
+    const data = epid
+    this.dataService.setData(data);
+    this.router.navigate(['/podcast/', id, 'episode', episodioId]);
   }
 
 }

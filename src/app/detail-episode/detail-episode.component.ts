@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Navigation } from '@angular/router';
+import { DataService } from '../core/services/dataService';
 
 @Component({
   selector: 'app-detail-episode',
@@ -8,12 +9,12 @@ import { Router, Navigation } from '@angular/router';
 })
 export class DetailEpisodeComponent implements OnInit{
 
-  constructor(private router: Router) { }
+  data: any;
+
+  constructor(private router: Router, private dataService : DataService) { }
+
   ngOnInit(): void {
-    const navigation: Navigation | null = this.router.getCurrentNavigation();
-    if (navigation && navigation.extras && navigation.extras.state){
-      const state = navigation.extras.state;
-      console.log(state)
-    }
+    this.data = this.dataService.getData();
+    console.log(this.data);
   }
 }

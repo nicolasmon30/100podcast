@@ -11,6 +11,8 @@ import { EpisodesListComponent } from './episodes/episodes-list/episodes-list.co
 import { EpisodeCardDetailComponent } from './episodes/episode-card-detail/episode-card-detail.component';
 import { PodcastCardComponent } from './podcast/podcast-card/podcast-card.component';
 import { PodcastCardDetailComponent } from './podcast/podcast-card-detail/podcast-card-detail.component';
+import { HeaderComponent } from './generals/header/header.component';
+import { FooterComponent } from './generals/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { PodcastCardDetailComponent } from './podcast/podcast-card-detail/podcas
     EpisodeCardDetailComponent,
     PodcastCardComponent,
     PodcastCardDetailComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
