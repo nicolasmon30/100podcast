@@ -1,0 +1,9 @@
+<section class="podcast">
+    <ul class="podcast__grid">
+        <li *ngFor="let pod of podcast">
+            <a [routerLink]="['/podcast', pod.id.attributes['im:id'] ]">
+                {{ pod.id.attributes['im:id'] }} {{ pod.title.label}}
+            </a>
+        </li>
+    </ul>
+</section>

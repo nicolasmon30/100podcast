@@ -1,0 +1,4 @@
+<p>detail-podcast works! {{ id }} </p>
+<li *ngFor="let epid of episodes" (click)="goToDetail(id,epid.id, epid)">
+    {{ epid.title }} 
+</li>
