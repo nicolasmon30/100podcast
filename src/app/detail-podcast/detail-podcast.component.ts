@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Episode } from '../core/models/episode.model'; 
+import { Router,ActivatedRoute } from '@angular/router';
+import { Episode } from '../core/models/episode.model';
+import { Podcast } from '../core/models/podcast.model'; 
 import { PodcastService } from '../core/services/podcastService';
 import { DataService } from '../core/services/dataService';
-
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail-podcast',
@@ -15,6 +14,9 @@ export class DetailPodcastComponent implements OnInit {
 
   id: string = '';
   episodes: Episode[] = [];
+  podcast: Podcast[] = [];
+  isShow = false;
+
 
   constructor(private route: ActivatedRoute, private podcastService: PodcastService, 
     private router : Router, private dataService : DataService) { }
@@ -23,23 +25,16 @@ export class DetailPodcastComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id') ?? '';
 
     this.podcastService.getDetailPodcast(this.id).subscribe((response: any) => {
-      console.log(JSON.parse(response.contents))
+      this.podcast = response[0]
+      this.isShow = true
     },(error : any) => {
       console.log('Error al acceder al api', error)
     })
 
     this.podcastService.getEpisodes(this.id).subscribe(episodes => {
       this.episodes = episodes
-      console.log(this.episodes)
     })
   }
 
-  /* METHODS */
-  goToDetail(id : any , episodioId : any , epid : any ){
-    console.log(id, episodioId , epid)
-    const data = epid
-    this.dataService.setData(data);
-    this.router.navigate(['/podcast/', id, 'episode', episodioId]);
-  }
 
 }

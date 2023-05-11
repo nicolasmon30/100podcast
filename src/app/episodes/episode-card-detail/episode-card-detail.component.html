@@ -1,1 +1,12 @@
-<p>episode-card-detail works!</p>
+<section *ngIf="episode" class="episodeCard">
+    <h1>{{ episode?.title }}</h1>
+    <p>
+        {{ episode?.description }}
+    </p>
+    <div class="episodeCard__audio">
+        <audio controls>
+            <source [src]="episode?.audioUrl" />
+            Your browser does not support the audio tag.
+        </audio>
+    </div>
+</section>

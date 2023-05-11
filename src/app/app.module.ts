@@ -13,6 +13,7 @@ import { PodcastCardComponent } from './podcast/podcast-card/podcast-card.compon
 import { PodcastCardDetailComponent } from './podcast/podcast-card-detail/podcast-card-detail.component';
 import { HeaderComponent } from './generals/header/header.component';
 import { FooterComponent } from './generals/footer/footer.component';
+import { SidebarComponent } from './generals/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FooterComponent } from './generals/footer/footer.component';
     PodcastCardDetailComponent,
     HeaderComponent,
     FooterComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

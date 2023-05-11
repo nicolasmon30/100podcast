@@ -13,10 +13,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.podcastService.getPodcasts().subscribe((response: any) => {
-      const temp = JSON.parse(response.contents)
-      const { feed :{ entry }  } = temp
-      this.podcast = entry
-      console.log(this.podcast)
+      this.podcast = response
     }, (error : any) => {
       console.log('Error al acceder al api', error)
     })

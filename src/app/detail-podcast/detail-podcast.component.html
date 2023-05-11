@@ -1,4 +1,15 @@
-<p>detail-podcast works! {{ id }} </p>
-<li *ngFor="let epid of episodes" (click)="goToDetail(id,epid.id, epid)">
-    {{ epid.title }} 
-</li>
+<section class="detailPodcast">
+    <div class="container">
+        <app-sidebar *ngIf="isShow" [detailPodcast]="podcast"></app-sidebar>
+        <div class="episodes">
+            <div class="episodes__head">
+                <p>Title</p>
+                <p>Date</p>
+                <p>Duration</p>
+            </div>
+            <ul class="episodes__list">
+                <app-episodes-list *ngFor="let epid of episodes" [episodeDetail]="epid"></app-episodes-list>
+            </ul>
+        </div>
+    </div>
+</section>

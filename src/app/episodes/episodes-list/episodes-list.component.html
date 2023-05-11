@@ -1,1 +1,11 @@
-<p>episodes-list works!</p>
+<li (click)="goToDetail(id,episode.id, episode)">
+    <div>
+        {{ episode.title }} 
+    </div>
+    <div>
+        {{ episode.releaseDate }} 
+    </div>
+    <div>
+        {{ episode.duration }} 
+    </div>
+</li>

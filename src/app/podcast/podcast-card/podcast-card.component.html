@@ -1,1 +1,15 @@
-<p>podcast-card works!</p>
+<article class="podCard">
+    <a [routerLink]="['podcast', podcast.id]">
+        <figure>
+          <img [src]="podcast.imageUrl" alt="">
+        </figure>
+        <div class="podCard__body">
+          <h3>
+            {{podcast.title }}
+          </h3>
+          <p>
+            Author : {{ podcast.author }}
+          </p>
+        </div>
+    </a>
+</article>
