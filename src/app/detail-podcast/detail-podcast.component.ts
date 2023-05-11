@@ -17,6 +17,7 @@ export class DetailPodcastComponent implements OnInit {
   podcast: Podcast[] = [];
   podcastData: Podcast[] = [];
   isShow = false;
+  isLoader = false;
   countEpisodes : number = 0;
 
 
@@ -37,6 +38,7 @@ export class DetailPodcastComponent implements OnInit {
     this.podcastService.getEpisodes(this.id).subscribe(episodes => {
       this.episodes = episodes
       this.countEpisodes = episodes.length
+      this.isLoader = true
     })
   }
 
