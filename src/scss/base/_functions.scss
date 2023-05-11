@@ -1,0 +1,7 @@
+@use '../base/config' as con;
+// PX TO REM
+// Transform a Pixels value to Rem
+@function toRem($size){
+	$newSize: calc($size / con.$baseFont) + rem;
+	@return $newSize;
+}

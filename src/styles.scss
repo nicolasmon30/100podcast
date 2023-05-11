@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+// BASE
+
+@use "../src/scss/base/generals";
+@use "../src/scss/base/functions";
+@use "../src/scss/base/mixins";
+@use "../src/scss/base/fonts";
+
+
+// COMPONENTS
+
+@use "../src/scss/components/loader";
+
+
+
+// LAYOUT
+
+@use "../src/scss/layout/header";
+@use "../src/scss/layout/container";
+@use "../src/scss/layout/footer";
+
+
+
+

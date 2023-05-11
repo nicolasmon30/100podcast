@@ -1,0 +1,25 @@
+@use '/src/scss/base/config' as con; 
+@use '/src/scss/base/functions' as fun; 
+
+.episodes{
+    &__item{
+        &__box{
+            display: grid;
+            grid-template-columns: 4fr 1fr 1fr;
+            grid-gap: 10px;
+            padding: fun.toRem(15) fun.toRem(5);
+            align-items: center;
+            div{
+                &:nth-child(1){
+                    cursor: pointer;
+                    color: con.$blueDark;
+                    font-weight: 500;
+                }
+                &:nth-child(3){
+                    text-align: right;
+                }
+            }
+
+        }
+    }
+}

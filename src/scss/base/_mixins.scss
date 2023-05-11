@@ -1,0 +1,36 @@
+// MEDIAQUERIES
+$mediaqueries: (
+	mobS3: 			360,
+	mobS2: 			480,
+	mobS: 			640,
+	mob: 			767,
+	tabS: 			820,
+	tab: 			991,
+	lapS3: 			1024,
+	lapS2: 			1199,
+	lapS: 			1280,
+	lap: 			1367,
+	deskS: 			1440,
+	desk: 			1560,
+	deskB: 			1680
+);
+
+@mixin mq($media: mob, $type: max){
+	@if type-of($media) == number {
+		@if unitless($media) {
+			@media only screen and (#{$type}-width: #{$media}px){
+				@content;
+			}
+		}
+	} @else {
+		@if type-of(map-get($mediaqueries, $media)) == number {
+			@media only screen and (#{$type}-width: #{map-get($mediaqueries, $media)px}){
+				@content;
+			}
+		} @else if type-of(map-get($mediaqueries, $media)) == string {
+			@media #{map-get($mediaqueries, $media)}{
+				@content;
+			}
+		}
+	}
+}

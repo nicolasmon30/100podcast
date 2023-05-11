@@ -1,0 +1,18 @@
+@use '/src/scss/base/config' as con; 
+@use '/src/scss/base/functions' as fun; 
+@use '/src/scss/base/mixins' as mix;
+
+
+.detailEpisode{
+    margin: fun.toRem(50) 0;
+    min-height: 74.5vh;
+    .container{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: fun.toRem(50);
+        @include mix.mq(1024,min){
+            grid-gap: fun.toRem(200);
+            grid-template-columns: 20rem 5fr;
+        }
+    }
+}

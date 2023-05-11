@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { DateFormatPipe } from './core/pipes/date-format.pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +16,9 @@ import { PodcastCardDetailComponent } from './podcast/podcast-card-detail/podcas
 import { HeaderComponent } from './generals/header/header.component';
 import { FooterComponent } from './generals/footer/footer.component';
 import { SidebarComponent } from './generals/sidebar/sidebar.component';
+import { HoursFormatPipe } from './core/pipes/hours-format.pipe';
+import { LoaderComponent } from './generals/loader/loader.component';
+
 
 @NgModule({
   declarations: [
@@ -28,9 +33,13 @@ import { SidebarComponent } from './generals/sidebar/sidebar.component';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
+    DateFormatPipe,
+    HoursFormatPipe,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
     HttpClientJsonpModule

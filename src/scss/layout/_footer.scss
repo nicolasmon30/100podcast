@@ -1,0 +1,12 @@
+@use '/src/scss/base/config' as con; 
+@use '/src/scss/base/functions' as fun; 
+footer{
+    background-color: con.$blueDark;
+    .container{
+        padding: fun.toRem(25) 0;
+        p{
+            color: con.$white;
+            text-align: center;
+        }
+    }
+}

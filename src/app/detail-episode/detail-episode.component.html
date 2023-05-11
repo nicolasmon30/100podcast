@@ -1,2 +1,6 @@
-<app-sidebar *ngIf="isShow" [detailPodcast]="podcast"></app-sidebar>
-<app-episode-card-detail [dataEpisode]="data" ></app-episode-card-detail>
+<section class="detailEpisode">
+    <div class="container">
+        <app-sidebar *ngIf="isShow" [detailPodcast]="podcast"></app-sidebar>
+        <app-episode-card-detail [dataEpisode]="data" ></app-episode-card-detail>
+    </div>
+</section>

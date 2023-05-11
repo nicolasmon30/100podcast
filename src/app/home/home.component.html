@@ -1,7 +1,24 @@
 <section class="podcast">
-    <ul class="podcast__grid">
-        <li *ngFor="let pod of podcast">
-           <app-podcast-card [dataPodcast]="pod"></app-podcast-card>
-        </li>
-    </ul>
+    <div class="container">
+        <div class="podcast__search">
+            <div *ngIf="!(searchResults$ | async)?.length else notCounter">
+                {{ podcast.length }}
+            </div>
+            <ng-template #notCounter>
+                <div>
+                    {{ (searchResults$ | async)?.length }}
+                </div>
+            </ng-template>
+            <input type="text" (keyup)="onSearch($event)" placeholder="Filter podcasts">
+        </div>
+        <div class="podcast__grid" *ngIf="(searchResults$ | async)?.length; else noResults">
+            <app-podcast-card *ngFor="let result of searchResults$ | async" [dataPodcast]="result"></app-podcast-card>
+        </div>
+        <ng-template #noResults>
+            <ul class="podcast__grid">
+                <app-podcast-card *ngFor="let pod of podcast" [dataPodcast]="pod"></app-podcast-card>
+            </ul>
+        </ng-template>
+    </div>
 </section>
+<app-loader *ngIf="!isShow" ></app-loader>

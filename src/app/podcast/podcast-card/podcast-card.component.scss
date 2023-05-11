@@ -1,0 +1,37 @@
+@use '/src/scss/base/config' as con; 
+@use '/src/scss/base/functions' as fun; 
+@use '/src/scss/base/mixins' as mix;
+
+.podCard{
+    box-shadow: 0 2px 5px -1px rgba(con.$blueDark,.25), 0 1px 3px -1px rgba(con.$blueDark,.3);
+    position: relative;
+    padding: fun.toRem(100) fun.toRem(15) fun.toRem(40);
+    border-radius: 15px;
+    a{
+        text-decoration: none;
+        display: block;
+        figure{
+            overflow: hidden;
+            width: fun.toRem(170);
+            height: fun.toRem(170);
+            margin: 0 auto;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: fun.toRem(-45);
+        }
+    }
+    &__body{
+        margin: fun.toRem(50) 0 0;
+        h3{
+            text-align: center;
+            color: con.$blueDark;
+            margin: 0 0 fun.toRem(10);
+        }
+        p{
+            text-align: center;
+            color: con.$blueMedium; 
+        }
+    }
+}

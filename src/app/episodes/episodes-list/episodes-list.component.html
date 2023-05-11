@@ -1,11 +1,11 @@
-<li (click)="goToDetail(id,episode.id, episode)">
+<div class="episodes__item__box" (click)="goToDetail(id,episode.id, episode)">
     <div>
         {{ episode.title }} 
     </div>
     <div>
-        {{ episode.releaseDate }} 
+        {{ episode.releaseDate | dateFormat:'dd/MM/yyyy' }} 
     </div>
     <div>
-        {{ episode.duration }} 
+        {{ episode.duration | hoursFormat }}
     </div>
-</li>
+</div>

@@ -16,6 +16,7 @@ export class DetailPodcastComponent implements OnInit {
   episodes: Episode[] = [];
   podcast: Podcast[] = [];
   isShow = false;
+  countEpisodes : number = 0;
 
 
   constructor(private route: ActivatedRoute, private podcastService: PodcastService, 
@@ -33,6 +34,7 @@ export class DetailPodcastComponent implements OnInit {
 
     this.podcastService.getEpisodes(this.id).subscribe(episodes => {
       this.episodes = episodes
+      this.countEpisodes = episodes.length
     })
   }
 

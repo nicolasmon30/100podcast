@@ -2,14 +2,22 @@
     <div class="container">
         <app-sidebar *ngIf="isShow" [detailPodcast]="podcast"></app-sidebar>
         <div class="episodes">
-            <div class="episodes__head">
-                <p>Title</p>
-                <p>Date</p>
-                <p>Duration</p>
+            <div class="episodes__count">
+                <h2>Episodes : {{ countEpisodes }} </h2>
             </div>
-            <ul class="episodes__list">
-                <app-episodes-list *ngFor="let epid of episodes" [episodeDetail]="epid"></app-episodes-list>
-            </ul>
+            <div class="episodes__box">
+                <div class="episodes__head">
+                    <p>Title</p>
+                    <p>Date</p>
+                    <p>Duration</p>
+                </div>
+                <ul class="episodes__list">
+                    <div class="episodes__item" *ngFor="let epid of episodes">
+                        <app-episodes-list [episodeDetail]="epid"></app-episodes-list>
+                    </div>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
+<app-loader *ngIf="!isShow" ></app-loader>

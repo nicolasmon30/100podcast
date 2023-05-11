@@ -1,0 +1,17 @@
+@use '/src/scss/base/config' as con; 
+@use '/src/scss/base/functions' as fun; 
+@use '/src/scss/base/mixins' as mix;
+
+.episodeCard {
+  box-shadow: 0 2px 5px -1px rgba(con.$blueDark, .25), 0 1px 3px -1px rgba(con.$black, .3);
+  padding: fun.toRem(30) fun.toRem(15);
+  h1{
+    margin: 0 0 fun.toRem(30);
+  }
+  &__audio{
+      margin: fun.toRem(30) 0 0;
+      audio{
+          width: 100%;
+      }
+  }
+}
