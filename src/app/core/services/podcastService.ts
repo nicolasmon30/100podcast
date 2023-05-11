@@ -58,10 +58,12 @@ export class PodcastService {
             )
     }
     getEpisodes(idPodcast: any): Observable<Episode[]> {
-        return this.http.get<ApiResponse<any>>(`https://itunes.apple.com/lookup?id=${idPodcast}&country=US&media=podcast&entity=podcastEpisode&limit=30`)
+        return this.http.get<ApiResponse<any>>(`https://itunes.apple.com/lookup?id=${idPodcast}&country=US&media=podcast&entity=podcastEpisode&limit=200`)
             .pipe(
                 map(response => {
-                    return response.results.map(item => {
+                    return response.results
+                        .filter(item => item.episodeUrl !== undefined)
+                        .map(item => {
                         const episode: Episode = {
                             id: item.trackId,
                             title: item.trackName,
@@ -72,8 +74,8 @@ export class PodcastService {
                             releaseDate: item.releaseDate,
                             duration: item.trackTimeMillis,
                         }
-
                         return episode;
+
                     })
                 })
             )

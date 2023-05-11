@@ -15,6 +15,7 @@ export class DetailPodcastComponent implements OnInit {
   id: string = '';
   episodes: Episode[] = [];
   podcast: Podcast[] = [];
+  podcastData: Podcast[] = [];
   isShow = false;
   countEpisodes : number = 0;
 
@@ -25,10 +26,11 @@ export class DetailPodcastComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') ?? '';
 
-    this.podcastService.getDetailPodcast(this.id).subscribe((response: any) => {
-      this.podcast = response[0]
-      this.isShow = true
-    },(error : any) => {
+    this.podcastService.getPodcasts().subscribe((response: any) => {
+      const result = response.filter((res : any) => res.id === this.id)
+      this.podcastData = result
+      this.isShow = true;
+    }, (error : any) => {
       console.log('Error al acceder al api', error)
     })
 

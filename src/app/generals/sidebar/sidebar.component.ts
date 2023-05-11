@@ -11,6 +11,6 @@ export class SidebarComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.podcast = this.detailPodcast;
+    this.podcast = this.detailPodcast[0];
   }
 }
